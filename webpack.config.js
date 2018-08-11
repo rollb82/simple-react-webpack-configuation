@@ -1,9 +1,9 @@
-var path = require('path');
+const path = require('path');
 
-var DIST_DIR = path.resolve(__dirname, 'dist');
-var SRC_DIR = path.resolve(__dirname, 'src');
+const DIST_DIR = path.resolve(__dirname, 'dist');
+const SRC_DIR = path.resolve(__dirname, 'src');
 
-var config = {
+const config = {
     mode: 'none',
     entry: SRC_DIR + '/app/index.js',
     output: {
@@ -14,8 +14,9 @@ var config = {
     module:{
         rules:[
             {
-                test: /\.js?/,
+                test: /\.js$/,
                 include: SRC_DIR,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
